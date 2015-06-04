@@ -20,7 +20,7 @@ GEOtop_ReadPlotRst(rst, date, variable, layer, limits, legend="", lowcol="#f7fbf
   \item{lowcol}{minimum colour for visualization, default = "#f7fbff"}
   \item{highcol}{maximum colour for visualization, default = "#08306b"; default is creating a blue colour range}
 } 
-}
+
 \details{
 %%  ~~ If necessary, more details than the description above ~~
 }
