@@ -2,10 +2,9 @@
 \alias{TopoSUB_mapping}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
-}
+mapping of TopoSub output}
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+mapping of TopoSub output
 }
 \usage{
 TopoSUB_mapping(wpath, key, vars, date, fun, Nclust, devision)
