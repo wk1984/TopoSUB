@@ -5,20 +5,20 @@
 Restructure TopoSUB - GEOtop output
 }
 \description{
-GEOtop point output retrieved from the coupling with the topoSUB tool is in oder to be used by the topoSUB postprocess functions, e.g. \emph{TopoSUB_mapping}}
+GEOtop point output retrieved from the coupling with the topoSUB tool is restructured in oder to be used by the topoSUB postprocess functions, e.g. \emph{TopoSUB_mapping}}
 \usage{
-TopoSUB_restrOutput(wpath, keys, Nclust)
+TopoSUB_restrOutput(keys,  setup_filename="setup.txt", location_filename="location.txt")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{wpath}{
-GEOtop simulation path
-}
   \item{keys}{
 keywords, for further information refer to \pkg{geotopbricks}
 }
-  \item{Nclust}{
-Number of cluster centroids simulated
+  \item{setup_filename}{
+name of setup file, default: setup.txt
+}
+  \item{location_filename}{
+name of setup file, default: location.txt
 }
 }
 \details{

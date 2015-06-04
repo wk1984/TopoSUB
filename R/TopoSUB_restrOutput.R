@@ -4,11 +4,25 @@
 # 
 # keys <- c("PointOutputFileWriteEnd", "SoilAveragedTempProfileFileWriteEnd",
 #           "SoilLiqContentProfileFileWriteEnd", "SoilIceContentProfileFileWriteEnd")
-# 
-# Nclust <- 150
 
-TopoSUB_restrOutput <- function(wpath, keys, Nclust)
+TopoSUB_restrOutput <- function(keys, setup_filename="setup.txt", location_filename="location.txt")
 {
+  
+  # read location file
+  locations <- read.csv(location_filename, header = F, colClasses="character")
+  apply(X = locations[,c(2,3)], MARGIN = 1, 
+        FUN = function(x) assign(x = x[1], value = x[2], envir = .GlobalEnv) )
+  
+  # get working path
+  eroot_loc1 <- file.path( root, sim, paste("1d/1d_", exper1, sep="")) # 1d path
+  dir <- formatC( as.numeric(es), width=6, flag="0" ) # format experiment dir name
+  wpath <- file.path(eroot_loc1, dir) # experiment path
+  
+  # get setup info
+  setup <- read.csv(file.path(wpath,setup_filename), header = F)
+  apply(X = setup[,c(2,3)], MARGIN = 1, 
+        FUN = function(x) assign(x = x[1], value = as.numeric(x[2]), envir = .GlobalEnv) )
+  
   # extract start and end of simulation
   start <- get.geotop.inpts.keyword.value("InitDateDDMMYYYYhhmm",date=TRUE,wpath=wpath,tz="UTC")
   end <- get.geotop.inpts.keyword.value("EndDateDDMMYYYYhhmm",date=TRUE,wpath=wpath,tz="UTC")
